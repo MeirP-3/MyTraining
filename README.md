@@ -12,6 +12,7 @@ Install [Node.js](http://nodejs.org/).
 Clone GitHub repo:
 
 ```
+Please fix me
 git clone https://github.com/twitterdev/sample-angular-node.git
 ```
 Create a config.js file using config.sample.js as a template. Fill in your Twitter App API Keys. You will need to [create a Twitter application](https://apps.twitter.com/).
