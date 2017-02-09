@@ -1,33 +1,22 @@
 // spec.js
 describe('MyTrainingCheck', function() {
-  var firstNumber = element(by.model('first'));
-  var secondNumber = element(by.model('second'));
-  var goButton = element(by.id('gobutton'));
-  var latestResult = element(by.binding('latest'));
-
+  var defualtUser = element(by.model('username'));
+  var getTweets = element(by.buttonText('Get Tweets'));
+  
   beforeEach(function() {
-    browser.get('http://juliemr.github.io/protractor-demo/');
+    browser.get('http://localhost:5000/');
   });
 
-  it('should have a title', function() {
-    expect(browser.getTitle()).toEqual('Super Calculator');
-  });
+  //it('should default to golum_from', function() {
+  //  expect(defualtUser.getAttribute('placeholder')).toEqual('golum_from');
+  //});
 
-  it('should add one and two', function() {
-    firstNumber.sendKeys(1);
-    secondNumber.sendKeys(2);
+  it('should change to eslpod user', function() {
+    for(i=0;i<10;i++)
+      defualtUser.sendKeys(protractor.Key.BACK_SPACE);
+    defualtUser.sendKeys('eslpod');
+    getTweets.click();
 
-    goButton.click();
-
-    expect(latestResult.getText()).toEqual('3');
-  });
-
-  it('should add four and six', function() {
-    firstNumber.sendKeys(4);
-    secondNumber.sendKeys(6);
-
-    goButton.click();
-
-    expect(latestResult.getText()).toEqual('10');
+    expect(currentUser.getText()).toContain('eslpod');
   });
 });
