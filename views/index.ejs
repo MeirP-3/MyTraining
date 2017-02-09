@@ -52,7 +52,8 @@
 
 		    	<div id="tweet-list">
 
-		    		<!-- this div will repeat for every tweet object in the array using a template-expanding directive -->
+		    		<!-- this div will repeat
+					 for every tweet object in the array using a template-expanding directive -->
 		    		<div ng-repeat="tweet in tweetsResult" class="tweet-item">
 
 		    			<!-- sanitized HTML binding -->
@@ -63,7 +64,7 @@
 								Tweeted from <span ng-bind-html="tweet.source"></span>
 
 								<!-- play around with rendering different Tweet properties -->
-								<!-- <p>{{tweet.user.screen_name}}</p> -->
+								<p id='meir'>{{tweet.user.screen_name}}</p> 
 								<!-- <p>{{tweet.text}}</p> -->
 							</div>
 		    		</div>
