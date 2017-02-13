@@ -27,7 +27,7 @@ app.controller('TweetList', function($scope, $resource, $timeout) {
         $scope.msnry.layout();
       });
 
-      $scope.getTweets();
+      //$scope.getTweets();
     }
 
     /**
@@ -53,11 +53,11 @@ app.controller('TweetList', function($scope, $resource, $timeout) {
         if( angular.isUndefined(paging) ) {
           $scope.tweetsResult = [];
         }
-
+        if($scope.maxId) { $scope.tweetsResult.pop(); }
         $scope.tweetsResult = $scope.tweetsResult.concat(res);
 
         // for paging - https://dev.twitter.com/docs/working-with-timelines
-        $scope.maxId = res[res.length - 1].id;
+        $scope.maxId = (res[res.length-1].id);
 
         // render tweets with widgets.js
         $timeout(function () {

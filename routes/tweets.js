@@ -38,6 +38,7 @@ router.get('/user_timeline/:user', function(req, res) {
     for(i; i < len; i++) {
       getOEmbed(tweets[i]);
     }
+
   });
 
   /**
@@ -61,6 +62,9 @@ router.get('/user_timeline/:user', function(req, res) {
       // do we have oEmbed HTML for all Tweets?
       if (oEmbedTweets.length == tweets.length) {
         res.setHeader('Content-Type', 'application/json');
+
+        //for some reason, the array turned to be unsorted. resort it!
+        oEmbedTweets.sort(function(a,b) {return b.id - a.id});
         res.send(oEmbedTweets);
       }
     });
